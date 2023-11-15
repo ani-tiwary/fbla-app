@@ -12,9 +12,6 @@ import com.example.anikash.databinding.FragmentDashboardBinding
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,6 +19,9 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
+
         val dashboardViewModel =
             ViewModelProvider(this).get(DashboardViewModel::class.java)
 
@@ -31,6 +31,10 @@ class DashboardFragment : Fragment() {
         val textView: TextView = binding.textView
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+        }
+
+        binding.submitButton.setOnClickListener{
+            binding.submitButton.text = binding.textField.text
         }
         return root
     }
