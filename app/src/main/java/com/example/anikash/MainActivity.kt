@@ -1,5 +1,6 @@
 package com.example.anikash
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -9,11 +10,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.anikash.databinding.ActivityMainBinding
+import java.io.FileOutputStream
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var nameField: EditText
     private lateinit var binding: ActivityMainBinding
+
+    private final var filename = "nameFile"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,4 +38,26 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun writeToFile(text: String) {
+        val fileOutputStream: FileOutputStream = openFileOutput(filename, MODE_PRIVATE)
+        val text = text
+        fileOutputStream.write(text.toByteArray())
+        fileOutputStream.close()
+
+        // print file location
+        System.out.println("File location: "  + "/" + filename)
+    }
+
+    fun readFromFile(): String {
+        try {
+            val fileInputStream = openFileInput(filename)
+            val text = fileInputStream.bufferedReader().use { it.readText() }
+            fileInputStream.close()
+            return text
+        } catch (e: Exception) {
+            return ""
+        }
+    }
+
 }

@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.anikash.MainActivity
 import com.example.anikash.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -55,16 +56,16 @@ class DashboardFragment : Fragment() {
     }
 
     private fun saveNameToLocalStorage(name: String) {
-        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-        with(sharedPref.edit()) {
-            putString("savedName", name)
-            apply()
+        // save name using main activity function
+        (activity as? MainActivity)?.let {
+            it.writeToFile(name)
         }
     }
 
     private fun loadNameFromLocalStorage() {
-        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-        val savedName = sharedPref.getString("savedName", "")
+        val savedName = (activity as? MainActivity)?.readFromFile()
         nameField.setText(savedName)
+        binding.textView.text = savedName
     }
+
 }
