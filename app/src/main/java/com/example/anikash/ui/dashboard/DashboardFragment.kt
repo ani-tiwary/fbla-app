@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.anikash.MainActivity
 import com.example.anikash.databinding.FragmentDashboardBinding
+import org.json.JSONObject
 
 class DashboardFragment : Fragment() {
 
@@ -27,24 +28,28 @@ class DashboardFragment : Fragment() {
     ): View {
         val dashboardViewModel =
             ViewModelProvider(this).get(DashboardViewModel::class.java)
-
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textView
-        nameField = binding.textField
+        val textView: TextView = binding.titleText
+        nameField = binding.nameField
 
-        // Load the saved name when the app is loaded
-        loadNameFromLocalStorage()
 
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 
         binding.submitButton.setOnClickListener {
-            val enteredName = nameField.text.toString()
-            saveNameToLocalStorage(enteredName)
-            textView.text = enteredName
+            val jsonObject = JSONObject()
+
+            val enteredName = binding.nameField.text
+            jsonObject.put("Name", enteredName)
+            val enteredOrg = binding.currentOrganisationField.text
+            jsonObject.put("Organisation", enteredOrg)
+            val enteredPos = binding.currentPositionField.text
+            jsonObject.put("Position", enteredPos)
+
+            println(jsonObject.toString()) //temporary test
         }
 
         return root
@@ -55,17 +60,6 @@ class DashboardFragment : Fragment() {
         _binding = null
     }
 
-    private fun saveNameToLocalStorage(name: String) {
-        // save name using main activity function
-        (activity as? MainActivity)?.let {
-            it.writeToFile(name)
-        }
-    }
 
-    private fun loadNameFromLocalStorage() {
-        val savedName = (activity as? MainActivity)?.readFromFile()
-        nameField.setText(savedName)
-        binding.textView.text = savedName
-    }
 
 }

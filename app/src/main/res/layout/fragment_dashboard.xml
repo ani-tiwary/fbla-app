@@ -7,40 +7,73 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="135dp"
-        android:layout_height="35dp"
+        android:id="@+id/titleText"
+        android:layout_width="346dp"
+        android:layout_height="46dp"
         android:layout_marginTop="6dp"
         android:capitalize="none"
-        android:text="Dashboard"
+        android:text="Enter your info:"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textColor="#000000"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.014" />
 
     <Button
         android:id="@+id/submit_button"
-        android:layout_width="166dp"
-        android:layout_height="121dp"
+        android:layout_width="255dp"
+        android:layout_height="68dp"
         android:text="Submit Me"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.896" />
 
     <EditText
-        android:id="@+id/textField"
+        android:id="@+id/nameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Type here"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="130dp" />
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/submit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <EditText
+        android:id="@+id/currentOrganisationField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Organisation"
+        app:layout_constraintBottom_toTopOf="@+id/submit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText"
+        app:layout_constraintVertical_bias="0.455" />
+
+    <EditText
+        android:id="@+id/currentPositionField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Position"
+        app:layout_constraintBottom_toTopOf="@+id/currentOrganisationField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameField"
+        app:layout_constraintVertical_bias="0.48000002" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
