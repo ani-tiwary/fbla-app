@@ -50,6 +50,7 @@ class DashboardFragment : Fragment() {
             jsonObject.put("Position", enteredPos)
 
             println(jsonObject.toString()) //temporary test
+            (activity as MainActivity).writeToFile(jsonObject);
         }
 
         return root

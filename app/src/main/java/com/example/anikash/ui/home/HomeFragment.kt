@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.anikash.MainActivity
 import com.example.anikash.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -30,7 +31,10 @@ class HomeFragment : Fragment() {
 
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+            var json = (activity as MainActivity).readJSONFromFile()
+            var print_string = json.get("Name").toString() + "\n" + json.get("Organisation").toString() + "\n" + json.get("Position").toString()
+            System.out.println(print_string)
+            textView.text = print_string
         }
         return root
     }

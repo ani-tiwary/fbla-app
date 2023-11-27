@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.anikash.databinding.ActivityMainBinding
+import org.json.JSONObject
 import java.io.FileOutputStream
 
 class MainActivity : AppCompatActivity() {
@@ -39,10 +40,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun writeToFile(text: String) {
+    fun writeToFile(json: JSONObject) {
         val fileOutputStream: FileOutputStream = openFileOutput(filename, MODE_PRIVATE)
-        val text = text
-        fileOutputStream.write(text.toByteArray())
+        val json = json
+        fileOutputStream.write(json.toString().toByteArray())
         fileOutputStream.close()
 
         // print file location
@@ -60,4 +61,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun readJSONFromFile(): JSONObject {
+        try {
+            val fileInputStream = openFileInput(filename)
+            val text = fileInputStream.bufferedReader().use { it.readText() }
+            fileInputStream.close()
+            return JSONObject(text)
+        } catch (e: Exception) {
+            return JSONObject()
+        }
+    }
 }
