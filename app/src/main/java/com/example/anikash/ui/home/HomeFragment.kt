@@ -32,9 +32,16 @@ class HomeFragment : Fragment() {
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             var json = (activity as MainActivity).readJSONFromFile()
-            var print_string = json.get("Name").toString() + "\n" + json.get("Organisation").toString() + "\n" + json.get("Position").toString()
-            System.out.println(print_string)
-            textView.text = print_string
+            System.out.println(json.toString())
+            if (json.length() == 0) {
+                textView.text = "Lol"
+            } else {
+                System.out.println(json.getString("Name"))
+                var print_string = json.getString("Name") + '\n' + json.getString("Position")
+                System.out.println(print_string)
+                textView.text = print_string
+            }
+
         }
         return root
     }
