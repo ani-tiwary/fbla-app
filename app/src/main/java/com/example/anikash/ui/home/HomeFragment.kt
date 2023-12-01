@@ -30,14 +30,14 @@ class HomeFragment : Fragment() {
 
         homeViewModel.text.observe(viewLifecycleOwner) {
             var json = (activity as MainActivity).readJSONFromFile()
-            System.out.println(json.toString())
+            println(json.toString())
             if (json.length() == 0) {
             } else {
                 binding.name.text = json.getString("Name")
                 binding.occupationText.text = json.getString("Position")
                 binding.organization.text = json.getString("Organisation")
                 var print_string = json.getString("Name") + '\n' + json.getString("Position") + '\n' + json.getString("Organisation")
-                System.out.println(print_string)
+                println(print_string)
             }
 
         }

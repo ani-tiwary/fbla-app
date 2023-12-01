@@ -11,7 +11,4 @@ class DashboardViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    fun updateText(newText: String) {
-        _text.value = newText
-    }
 }

@@ -1,11 +1,9 @@
 package com.example.anikash.ui.dashboard
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -49,7 +47,7 @@ class DashboardFragment : Fragment() {
             val enteredPos = binding.currentPositionField.text
             jsonObject.put("Position", enteredPos)
 
-            println(jsonObject.toString()) //temporary test
+            println(jsonObject.toString())
             (activity as MainActivity).writeToFile(jsonObject);
         }
 

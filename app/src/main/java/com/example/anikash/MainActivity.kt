@@ -1,24 +1,21 @@
 package com.example.anikash
 
-import android.content.Context
 import android.os.Bundle
-import android.widget.EditText
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.anikash.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONObject
 import java.io.FileOutputStream
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var nameField: EditText
     private lateinit var binding: ActivityMainBinding
 
-    private final var filename = "nameFile"
+    private var filename = "nameFile"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,18 +43,17 @@ class MainActivity : AppCompatActivity() {
         fileOutputStream.write(json.toString().toByteArray())
         fileOutputStream.close()
 
-        // print file location
         println("File location: /$filename")
     }
 
     fun readJSONFromFile(): JSONObject {
-        try {
+        return try {
             val fileInputStream = openFileInput(filename)
             val text = fileInputStream.bufferedReader().use { it.readText() }
             fileInputStream.close()
-            return JSONObject(text)
+            JSONObject(text)
         } catch (e: Exception) {
-            return JSONObject()
+            JSONObject()
         }
     }
 }

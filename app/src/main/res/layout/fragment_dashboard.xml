@@ -10,7 +10,7 @@
         android:id="@+id/titleText"
         android:layout_width="346dp"
         android:layout_height="46dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="0dp"
         android:capitalize="none"
         android:text="Enter your info:"
         android:textAlignment="center"
