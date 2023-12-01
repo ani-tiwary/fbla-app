@@ -58,10 +58,10 @@
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/submit_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleText"
-        app:layout_constraintVertical_bias="0.462" />
+        app:layout_constraintVertical_bias="0.425" />
 
     <EditText
         android:id="@+id/currentPositionField"

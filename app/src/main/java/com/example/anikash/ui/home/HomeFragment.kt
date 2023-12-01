@@ -11,16 +11,10 @@ import com.example.anikash.MainActivity
 import com.example.anikash.databinding.FragmentHomeBinding
 
 
-// Steps to run the app
-// Start the Emulator
-// wait for it to load and build while waiting
-// then run app
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -34,19 +28,16 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             var json = (activity as MainActivity).readJSONFromFile()
             System.out.println(json.toString())
             if (json.length() == 0) {
-                textView.text = "Lol"
             } else {
                 binding.name.text = json.getString("Name")
                 binding.occupationText.text = json.getString("Position")
                 binding.organization.text = json.getString("Organisation")
                 var print_string = json.getString("Name") + '\n' + json.getString("Position") + '\n' + json.getString("Organisation")
                 System.out.println(print_string)
-                textView.text = print_string
             }
 
         }

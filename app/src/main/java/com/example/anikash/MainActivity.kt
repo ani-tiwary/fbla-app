@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_dashboard
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -47,18 +47,7 @@ class MainActivity : AppCompatActivity() {
         fileOutputStream.close()
 
         // print file location
-        System.out.println("File location: "  + "/" + filename)
-    }
-
-    fun readFromFile(): String {
-        try {
-            val fileInputStream = openFileInput(filename)
-            val text = fileInputStream.bufferedReader().use { it.readText() }
-            fileInputStream.close()
-            return text
-        } catch (e: Exception) {
-            return ""
-        }
+        println("File location: /$filename")
     }
 
     fun readJSONFromFile(): JSONObject {
