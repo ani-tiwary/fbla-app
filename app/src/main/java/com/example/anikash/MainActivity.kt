@@ -33,8 +33,11 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
 
-
+    fun goToHome() {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        navController.navigate(R.id.navigation_home)
     }
 
     fun writeToFile(json: JSONObject) {
@@ -54,6 +57,40 @@ class MainActivity : AppCompatActivity() {
             JSONObject(text)
         } catch (e: Exception) {
             JSONObject()
+        }
+    }
+
+    fun appendPortfolio(json: JSONObject) {
+        val json = readJSONFromFile()
+
+        try {
+            val portfolio = json.getJSONObject("portfolio")
+            val portfolioArray = portfolio.getJSONArray("portfolio")
+            portfolioArray.put(json)
+        } catch (e: Exception) {
+            val portfolio = JSONObject()
+            val portfolioArray = portfolio.getJSONArray("portfolio")
+            portfolioArray.put(json)
+        }
+
+        println("File location: /$filename")
+    }
+
+    fun listPortfolios(): ArrayList<JSONObject> {
+        val json = readJSONFromFile()
+
+        try {
+            val portfolio = json.getJSONObject("portfolio")
+            val portfolioArray = portfolio.getJSONArray("portfolio")
+            val portfolioList = ArrayList<JSONObject>()
+            for (i in 0 until portfolioArray.length()) {
+                portfolioList.add(portfolioArray.getJSONObject(i))
+            }
+            return portfolioList
+        } catch (e: Exception) {
+            val portfolio = ArrayList<JSONObject>()
+            portfolio.add(JSONObject())
+            return portfolio
         }
     }
 }

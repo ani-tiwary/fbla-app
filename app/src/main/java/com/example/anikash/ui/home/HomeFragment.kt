@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.anikash.MainActivity
 import com.example.anikash.databinding.FragmentHomeBinding
 
@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         homeViewModel.text.observe(viewLifecycleOwner) {
-            var json = (activity as MainActivity).readJSONFromFile()
+            var json = (activity as MainActivity).listPortfolios()[0]
             println(json.toString())
             if (json.length() == 0) {
             } else {
@@ -39,8 +39,8 @@ class HomeFragment : Fragment() {
                 var print_string = json.getString("Name") + '\n' + json.getString("Position") + '\n' + json.getString("Organisation")
                 println(print_string)
             }
-
         }
+
         return root
     }
 

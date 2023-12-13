@@ -48,7 +48,10 @@ class DashboardFragment : Fragment() {
             jsonObject.put("Position", enteredPos)
 
             println(jsonObject.toString())
-            (activity as MainActivity).writeToFile(jsonObject);
+            (activity as MainActivity).appendPortfolio(jsonObject);
+
+            // change to home fragment
+            (activity as MainActivity).goToHome()
         }
 
         return root
