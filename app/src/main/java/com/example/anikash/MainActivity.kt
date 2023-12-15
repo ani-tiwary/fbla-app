@@ -8,6 +8,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.anikash.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.FileOutputStream
 
@@ -60,18 +61,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun appendPortfolio(json: JSONObject) {
+    fun appendPortfolio(data: JSONObject) {
         val json = readJSONFromFile()
 
         try {
             val portfolio = json.getJSONObject("portfolio")
-            val portfolioArray = portfolio.getJSONArray("portfolio")
-            portfolioArray.put(json)
+            val portfolioArray = json.getJSONArray("portfolio")
+            portfolioArray.put(data)
         } catch (e: Exception) {
-            val portfolio = JSONObject()
-            val portfolioArray = portfolio.getJSONArray("portfolio")
-            portfolioArray.put(json)
+            System.out.println("Exception: $e")
+
+            json.put("portfolio", JSONArray())
+            val portfolioArray = json.getJSONArray("portfolio")
+            portfolioArray.put(data)
+            json.put("portfolio", portfolioArray)
         }
+
+        writeToFile(json)
 
         println("File location: /$filename")
     }
@@ -80,17 +86,17 @@ class MainActivity : AppCompatActivity() {
         val json = readJSONFromFile()
 
         try {
-            val portfolio = json.getJSONObject("portfolio")
-            val portfolioArray = portfolio.getJSONArray("portfolio")
+            val portfolioArray = json.getJSONArray("portfolio")
             val portfolioList = ArrayList<JSONObject>()
             for (i in 0 until portfolioArray.length()) {
                 portfolioList.add(portfolioArray.getJSONObject(i))
             }
             return portfolioList
         } catch (e: Exception) {
-            val portfolio = ArrayList<JSONObject>()
-            portfolio.add(JSONObject())
-            return portfolio
+            json.put("portfolio", JSONArray())
+            val portfolioList = ArrayList<JSONObject>()
+            portfolioList.add(JSONObject())
+            return portfolioList
         }
     }
 }
