@@ -17,4 +17,10 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
+    <fragment
+        android:id="@+id/navigation_portfolios"
+        android:name="com.example.anikash.ui.portfolios.PortfoliosFragment"
+        android:label="@string/title_portfolios"
+        tools:layout="@layout/fragment_portfolios" />
+
 </navigation>

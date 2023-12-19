@@ -3,4 +3,5 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Portfolio Maker</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_portfolios">Portfolios</string>
 </resources>

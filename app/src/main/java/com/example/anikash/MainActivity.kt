@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_portfolios
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity() {
         val json = readJSONFromFile()
 
         try {
-            val portfolio = json.getJSONObject("portfolio")
             val portfolioArray = json.getJSONArray("portfolio")
             portfolioArray.put(data)
         } catch (e: Exception) {
