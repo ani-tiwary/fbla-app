@@ -29,7 +29,9 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         homeViewModel.text.observe(viewLifecycleOwner) {
-            var json = (activity as MainActivity).listPortfolios()[-1]
+            var full_json = (activity as MainActivity).listPortfolios()
+            var json = full_json.last()
+
             println(json.toString())
             if (json.length() == 0) {
             } else {
