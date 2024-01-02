@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     private var filename = "nameFile"
 
+    private var currentPortfolio = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -97,5 +99,23 @@ class MainActivity : AppCompatActivity() {
             portfolioList.add(JSONObject())
             return portfolioList
         }
+    }
+
+    fun showPage(page: Int): Int {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        currentPortfolio = page
+
+        // make sure the current portfolio is a possible portfolio
+        val portfolioList = listPortfolios()
+        if (currentPortfolio >= portfolioList.size) {
+            currentPortfolio = portfolioList.size - 1
+        }
+
+        navController.navigate(page)
+        return 0
+    }
+
+    fun getCurrentPortfolio(): Int {
+        return currentPortfolio
     }
 }

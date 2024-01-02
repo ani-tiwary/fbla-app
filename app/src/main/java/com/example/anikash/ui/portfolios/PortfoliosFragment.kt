@@ -40,7 +40,11 @@ class PortfoliosFragment : Fragment() {
         // myWebView.loadData(encodedHtml, "text/html", "base64")
         myWebView.loadUrl("file:///android_asset/index.html")
         myWebView.settings.javaScriptEnabled = true
-        myWebView.addJavascriptInterface(WebAppInterface(), "Android")
+        var web_app = WebAppInterface()
+        web_app.storeData((activity as MainActivity).listPortfolios().toString())
+        web_app.createRunnable((activity as MainActivity)::showPage)
+
+        myWebView.addJavascriptInterface(web_app, "Android")
 
 
         var portfolios = (activity as MainActivity).listPortfolios()

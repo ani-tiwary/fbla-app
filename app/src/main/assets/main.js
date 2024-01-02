@@ -22,35 +22,55 @@ function sendAndroidMessage() {
 	`${document.getElementById("shortDescription").innerText} `);
 }
 
+var data = '[{"Name":"Akaash Dubey","Organization":"Anikash","Position":"Student","Education":"AITSchool","Skills":"Program","Honors":"sadasd","References":""}, {"Name":"asdasd","Organization":"sdcvrw","Position":"fvr","Education":"dvrwSchool","Skills":"dvsrf","Honors":"dvsd","References":"johnny"}]'
 
 function getData() {
     // This JSON files is hosted over the web
-   	fetch("https://raw.githubusercontent.com/android/views-widgets-samples/main/WebView/sampleData/weather.json").then(function(resp) {
-		return resp.json();
-	}).then(function(data) {
-		var form = document.getElementById("location");
-		var currentLocation = form.options[form.selectedIndex].value;
-		document.getElementById("title").innerText = form.options[form.selectedIndex].text;
-        document.getElementById("currentTemp").innerText = `${data[currentLocation].currentTemp}`+ "\xB0 F";
-        document.getElementById("shortDescription").innerText = data[currentLocation].description;
-        document.getElementById("longDescription").innerText = "Today in " + `${form.options[form.selectedIndex].text}`
-            + " there is a " + `${data[currentLocation].chancePrecip}` + "% chance of precipitation and the humidity is "
-            + `${data[currentLocation].humidity}` + "%.";
-        document.getElementById("icon").src = getIcon(data[currentLocation].description);
-	})
+    try {
+        data = Android.getDataString();
+    } catch (e) {
+        console.log("No Android Studio")
+    }
+   	
+    // Parse the JSON string into an object
+    data = JSON.parse(data);
+    // Iterate over the object
+    for (let i in data) {
+        // Insert a row into the HTML table
+        insertRow(data[i], i);
+    }
 }
 
-/* These icons are hosted locally, in the res/drawable folder. However, we can call them using
- * http(s):// URLs because we have configured AssetLoader in MainActivity. It is desirable to
- * access the files in this way because it is compatible with the Same-Origin policy.
- */
-function getIcon(description){
-    switch(description) {
-        case "Rainy":
-            return "https://raw.githubusercontent.com/views-widgets-samples/res/drawable/rain.png";
-        case "Clear Sky":
-            return "https://raw.githubusercontent.com/views-widgets-samples/res/drawable/sunny.png";
-        default:
-            return "https://raw.githubusercontent.com/views-widgets-samples/res/drawable/partly_cloudy.png";
+function openPortfolio(id) {
+    try {
+        // Android.openPortfolio(id);
+    } catch (e) {
+        console.log("No Android Studio")
     }
+}
+
+function insertRow(data, i) {
+    // get the portfolio-list
+    var div = document.getElementById("portfolio-list");
+    // insert new code
+    
+    div.innerHTML += `
+    <div class="portfolio-item" onclick="openPortfolio(${i})">
+      <div class="portfolio-item-header">
+        <h2 class="portfolio-item-title">${data.Name}</h2>
+      </div>
+      <div class="portfolio-item-body">
+        <p class="portfolio-item-description">${data.Organization}</p>
+        <p class="portfolio-item-amount">${data.Position}</p>
+        <p class="portfolio-item-amount">${data.Education}</p>
+      </div>
+      <div class="portfolio-item-body">
+        <p class="portfolio-item-description">${data.Skills}</p>
+        <p class="portfolio-item-amount">${data.Honors}</p>
+        <p class="portfolio-item-amount">${data.References}</p>
+      </div>
+    </div>
+    `;
+
+
 }

@@ -28,7 +28,7 @@
         android:layout_width="0dp"
         android:layout_height="98dp"
         android:gravity="center_horizontal|center_vertical"
-        android:text="Organisation"
+        android:text="Organization"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"

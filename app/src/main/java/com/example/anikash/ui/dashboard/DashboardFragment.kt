@@ -42,8 +42,8 @@ class DashboardFragment : Fragment() {
 
             val enteredName = binding.nameField.text
             jsonObject.put("Name", enteredName)
-            val enteredOrg = binding.currentOrganisationField.text
-            jsonObject.put("Organisation", enteredOrg)
+            val enteredOrg = binding.currentOrganizationField.text
+            jsonObject.put("Organization", enteredOrg)
             val enteredPos = binding.currentPositionField.text
             jsonObject.put("Position", enteredPos)
             jsonObject.put("Education", binding.editSchool.text)

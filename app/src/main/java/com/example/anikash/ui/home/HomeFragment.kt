@@ -30,15 +30,16 @@ class HomeFragment : Fragment() {
 
         homeViewModel.text.observe(viewLifecycleOwner) {
             var full_json = (activity as MainActivity).listPortfolios()
-            var json = full_json.last()
+            var json = full_json.get((activity as MainActivity).getCurrentPortfolio())
 
             println(json.toString())
             if (json.length() == 0) {
             } else {
                 binding.name.text = json.getString("Name")
                 binding.occupationText.text = json.getString("Position")
-                binding.organization.text = json.getString("Organisation")
+
                 try {
+                    binding.organization.text = json.getString("Organization")
                     binding.schoolText.text = json.getString("Education")
                     binding.skillsText.text = json.getString("Skills")
                     binding.honorsText.text = json.getString("Honors")
@@ -48,7 +49,7 @@ class HomeFragment : Fragment() {
                 }
 
 
-                var print_string = json.getString("Name") + '\n' + json.getString("Position") + '\n' + json.getString("Organisation")
+                var print_string = json.getString("Name") + '\n' + json.getString("Position") + '\n' + json.getString("Organization")
                 println(print_string)
             }
         }

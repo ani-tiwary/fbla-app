@@ -48,12 +48,12 @@
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
     <EditText
-        android:id="@+id/currentOrganisationField"
+        android:id="@+id/currentOrganizationField"
         android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Organisation"
+        android:hint="Organization"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -84,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentOrganisationField" />
+        app:layout_constraintTop_toBottomOf="@+id/currentOrganizationField" />
 
     <EditText
         android:id="@+id/editSkills"

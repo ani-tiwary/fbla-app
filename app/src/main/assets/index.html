@@ -15,23 +15,20 @@
   -->
 <!DOCTYPE html>
 <html>
+
 <head>
-    <script async src="main.js"></script>
-    <meta name="color-scheme" content="dark light">
-    <link rel="stylesheet" href="style.css">
+  <script async src="main.js"></script>
+  <meta name="color-scheme" content="dark light">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body onload="getData()">
-<label for="location">Choose a location:</label>
-<select name="location" id="location" onchange="getData()">
-    <option id= "NYC" value="newYork">New York</option>
-    <option id= "SF" value="sanFrancisco">San Francisco</option>
-    <option id= "LDN" value="london">London</option>
-</select>
-<h1 id="title">Location</h1>
-<img alt="weather" class="icon" id="icon" src="https://raw.githubusercontent.com/views-widgets-samples/res/drawable/sunny.png" />
-<h2 class="currentTemp" id="currentTemp">Current Temp</h2>
-<h2 class="shortDescription" id="shortDescription">Short Description</h2>
-<p class="longDescription" id="longDescription">Long Description</p>
-<button class="button" onclick="sendAndroidMessage()" type="button" value="Send Message">Share</button>
+  <h1 id="title">Portfolios</h1>
+
+  <div id="portfolio-list">
+  </div>
+  <p id="demo"></p>
+
 </body>
+
 </html>
