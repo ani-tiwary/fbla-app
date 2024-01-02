@@ -38,6 +38,16 @@ class HomeFragment : Fragment() {
                 binding.name.text = json.getString("Name")
                 binding.occupationText.text = json.getString("Position")
                 binding.organization.text = json.getString("Organisation")
+                try {
+                    binding.schoolText.text = json.getString("Education")
+                    binding.skillsText.text = json.getString("Skills")
+                    binding.honorsText.text = json.getString("Honors")
+                    binding.referencesText.text = json.getString("References")
+                } catch (e: Exception) {
+                    println(e)
+                }
+
+
                 var print_string = json.getString("Name") + '\n' + json.getString("Position") + '\n' + json.getString("Organisation")
                 println(print_string)
             }

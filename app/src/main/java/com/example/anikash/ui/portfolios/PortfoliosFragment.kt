@@ -28,6 +28,7 @@ class PortfoliosFragment : Fragment() {
 
         var portfolios = (activity as MainActivity).listPortfolios()
         System.out.println(portfolios)
+        binding.textView.text = portfolios.toString()
         // add portfolios to recycler view
         // binding.textHome.text = homeViewModel.text.value
         // binding.portfoliosRecycler.adapter = PortfolioAdapter(portfolios)

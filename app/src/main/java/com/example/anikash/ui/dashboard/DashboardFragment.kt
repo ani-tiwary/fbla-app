@@ -46,6 +46,10 @@ class DashboardFragment : Fragment() {
             jsonObject.put("Organisation", enteredOrg)
             val enteredPos = binding.currentPositionField.text
             jsonObject.put("Position", enteredPos)
+            jsonObject.put("Education", binding.editSchool.text)
+            jsonObject.put("Skills", binding.editSkills.text)
+            jsonObject.put("Honors", binding.editHonors.text)
+            jsonObject.put("References", binding.editReferences.text)
 
             println(jsonObject.toString())
             (activity as MainActivity).appendPortfolio(jsonObject);
