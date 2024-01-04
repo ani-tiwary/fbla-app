@@ -43,7 +43,8 @@ function getData() {
 
 function openPortfolio(id) {
     try {
-        // Android.openPortfolio(id);
+        console.log(id)
+        Android.showPage(id);
     } catch (e) {
         console.log("No Android Studio")
     }

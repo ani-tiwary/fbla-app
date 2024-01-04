@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
             currentPortfolio = portfolioList.size - 1
         }
 
-        navController.navigate(page)
+        goToHome()
         return 0
     }
 
