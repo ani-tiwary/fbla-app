@@ -132,7 +132,7 @@
             android:id="@+id/submit_button"
             android:layout_width="255dp"
             android:layout_height="68dp"
-            android:layout_marginTop="156dp"
+            android:layout_marginTop="48dp"
             android:layout_marginEnd="4dp"
             android:text="Create Portfolio"
             app:layout_constraintEnd_toEndOf="parent"

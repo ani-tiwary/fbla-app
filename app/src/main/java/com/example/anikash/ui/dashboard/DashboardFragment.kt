@@ -58,6 +58,8 @@ class DashboardFragment : Fragment() {
             jsonObject.put("Skills", binding.editSkills.text)
             jsonObject.put("Honors", binding.editHonors.text)
             jsonObject.put("References", binding.editReferences.text)
+            val selectedDropdownValue = binding.dropdown.selectedItem.toString()
+            jsonObject.put("EmploymentStatus", selectedDropdownValue)
 
             println(jsonObject.toString())
             (activity as MainActivity).appendPortfolio(jsonObject);
