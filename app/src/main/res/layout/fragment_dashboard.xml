@@ -108,28 +108,37 @@
             android:id="@+id/editReferences"
             android:layout_width="327dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="References"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editHonors" />
+
+        <Spinner
+            android:id="@+id/dropdown"
+            android:layout_width="327dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="12dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editReferences" />
 
         <Button
             android:id="@+id/submit_button"
             android:layout_width="255dp"
             android:layout_height="68dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="156dp"
             android:layout_marginEnd="4dp"
             android:text="Create Portfolio"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.513"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editReferences" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/dropdown" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

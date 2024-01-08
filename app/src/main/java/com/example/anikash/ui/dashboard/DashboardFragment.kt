@@ -1,9 +1,11 @@
 package com.example.anikash.ui.dashboard
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -33,6 +35,12 @@ class DashboardFragment : Fragment() {
         nameField = binding.nameField
 
 
+        val employmentStatus = arrayOf("Employed", "Looking for Work", "Unemployed")
+
+        val adapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, employmentStatus)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.dropdown.adapter = adapter
+
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
@@ -54,7 +62,7 @@ class DashboardFragment : Fragment() {
             println(jsonObject.toString())
             (activity as MainActivity).appendPortfolio(jsonObject);
 
-            // change to home fragment
+
             (activity as MainActivity).goToHome()
         }
 
