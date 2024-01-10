@@ -125,3 +125,11 @@ img {
   justify-content: space-between;
   align-items: center;
 }
+
+.red {
+  background-color: rgb(255, 108, 108);
+}
+
+.green {
+  background-color: rgb(74, 199, 74);
+}

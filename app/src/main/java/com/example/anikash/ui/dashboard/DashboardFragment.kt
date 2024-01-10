@@ -62,7 +62,6 @@ class DashboardFragment : Fragment() {
             println(jsonObject.toString())
             (activity as MainActivity).appendPortfolio(jsonObject);
 
-
             (activity as MainActivity).goToHome()
         }
 

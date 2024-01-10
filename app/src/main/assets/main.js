@@ -22,7 +22,7 @@ function sendAndroidMessage() {
 	`${document.getElementById("shortDescription").innerText} `);
 }
 
-var data = '[{"Name":"Akaash Dubey","Organization":"Anikash","Position":"Student","Education":"AITSchool","Skills":"Program","Honors":"sadasd","References":""}, {"Name":"asdasd","Organization":"sdcvrw","Position":"fvr","Education":"dvrwSchool","Skills":"dvsrf","Honors":"dvsd","References":"johnny"}]'
+var data = '[{"Name":"Akaash Dubey","Organization":"Anikash","Position":"Student","Education":"AITSchool","Skills":"Program","Honors":"sadasd","References":"", "EmploymentStatus":"Employed"}, {"Name":"asdasd","Organization":"sdcvrw","Position":"fvr","Education":"dvrwSchool","Skills":"dvsrf","Honors":"dvsd","References":"johnny", "EmploymentStatus":"Unemployed"}]'
 
 function getData() {
     // This JSON files is hosted over the web
@@ -54,9 +54,15 @@ function insertRow(data, i) {
     // get the portfolio-list
     var div = document.getElementById("portfolio-list");
     // insert new code
+    color = "white"
+    if (data.EmploymentStatus == "Employed") {
+        color = "green"
+    } else if (data.EmploymentStatus == "Unemployed") {
+        color = "red"
+    }
     
     div.innerHTML += `
-    <div class="portfolio-item" onclick="openPortfolio(${i})">
+    <div class="portfolio-item ${color}" onclick="openPortfolio(${i})">
       <div class="portfolio-item-header">
         <h2 class="portfolio-item-title">${data.Name}</h2>
       </div>
