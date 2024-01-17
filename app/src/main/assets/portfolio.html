@@ -19,33 +19,37 @@
 <head>
     <script async src="portfolio.js"></script>
     <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        .gradient {
+            background: linear-gradient(45deg, #f378d8, #76008e);
+            color: white;
+        }
+
+        .divider {
+            border-top: 2px solid #f8f9fa;
+            margin: 15px 0;
+        }
+    </style>
 </head>
 
-<body onload="getData()">
-    <!--
-        var data = '{"Name":"Akaash Dubey","Organization":"Anikash","Position":"Student","Education":"AITSchool","Skills":"Program","Honors":"sadasd","References":""}' 
-        Name
-        Organization
-        Position
-        Education
-        Skills
-        Honors
-        References
-     -->
-    <div style="margin: 5%; text-align: center;">
-        <h1 id="name">Name</h1>
-        <h2 id="Organization">Organization</h2>
-        <h3 id="Position">Position</h3>
-        <h3 id="Education">Education</h3>
-        <p id="Skills">Skills</p>
-        <p id="Honors">Honors</p>
-        <p id="References">References</p>
+<body onload="getData()" class="bg-light">
+    <div class="container py-5 gradient">
+        <div class="row">
+            <div class="col-lg-8 mx-auto ">
+                <h1 id="name" class="display-4"><i class="fas fa-user"></i> Name</h1>
+                <hr class="divider">
+                <h2 id="Organization" class="display-5"><i class="fas fa-building"></i> Organization</h2>
+                <h3 id="Position" class="display-6"><i class="fas fa-briefcase"></i> Position</h3>
+                <h3 id="Education" class="display-6"><i class="fas fa-graduation-cap"></i> Education</h3>
+                <p id="Skills"><i class="fas fa-cogs"></i> Skills</p>
+                <p id="Honors"><i class="fas fa-medal"></i> Honors</p>
+                <p id="References"><i class="fas fa-users"></i> References</p>
+            </div>
+        </div>
     </div>
-    
-
-
-    <div style="height: 40px"></div>
-
 </body>
 
 </html>

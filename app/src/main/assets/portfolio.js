@@ -22,7 +22,7 @@ function sendAndroidMessage() {
 	`${document.getElementById("shortDescription").innerText} `);
 }
 
-var data = '{"Name":"Akaash Dubey","Organization":"Anikash","Position":"Student","Education":"AITSchool","Skills":"Program","Honors":"sadasd","References":"", "EmploymentStatus":"Unemployed"}'
+var data = '{"Name":"Akash Dubey","Organization":"Berkeley Heights","Position":"Student","Education":"AIT","Skills":"Java, Android Studio, and Python","Honors":"Student of the Month","References":"Dr. Wiener, Ani Tiwary, and Dylan Intwala", "EmploymentStatus":"Unemployed"}'
 
 function getData() {
     // This JSON files is hosted over the web
@@ -42,10 +42,10 @@ function addData(data) {
     console.log(data)
 
     document.getElementById("name").innerText = data.Name;
-    document.getElementById("Organization").innerText = data.Organization;
-    document.getElementById("Position").innerText = data.Position;
-    document.getElementById("Education").innerText = data.Education;
-    document.getElementById("Skills").innerText = data.Skills;
-    document.getElementById("Honors").innerText = data.Honors;
-    document.getElementById("References").innerText = data.References;
+    document.getElementById("Organization").innerHTML = '<i class="fas fa-building"></i> ' + data.Organization;
+    document.getElementById("Position").innerHTML = '<i class="fas fa-briefcase"></i> '+data.Position;
+    document.getElementById("Education").innerHTML = '<i class="fas fa-university"></i> '+data.Education;
+    document.getElementById("Skills").innerHTML = '<i class="fas fa-cogs"></i> '+data.Skills;
+    document.getElementById("Honors").innerHTML = '<i class="fas fa-medal"></i> '+data.Honors;
+    document.getElementById("References").innerHTML = '<i class="fas fa-users"></i> '+data.References;
 }

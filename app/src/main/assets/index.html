@@ -20,10 +20,39 @@
   <script async src="main.js"></script>
   <meta name="color-scheme" content="dark light">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap.css">
+  <script src="bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <style>
+      .gradient {
+          background: linear-gradient(45deg, #f378d8, #76008e);
+          color: white;
+      }
+
+      .green_gradient {
+          background: linear-gradient(45deg, #01d301, #007a00);
+          color: white;
+      }
+
+      .red_gradient {
+          background: linear-gradient(45deg, #ff3232, #930000);
+          color: white;
+      }
+
+      .white_gradient {
+          background: linear-gradient(45deg, #ffffff, #c1c1c1);
+          color: white;
+      }
+
+      .divider {
+          border-top: 2px solid #f8f9fa;
+          margin: 15px 0;
+      }
+  </style>
 </head>
 
-<body onload="getData()">
-  <h1 id="title">Portfolios</h1>
+<body onload="getData()" class="">
+  <h1 id="text-white pb-2">Portfolios</h1>
 
   <div id="portfolio-list">
   </div>

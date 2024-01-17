@@ -22,7 +22,7 @@ function sendAndroidMessage() {
 	`${document.getElementById("shortDescription").innerText} `);
 }
 
-var data = '[{"Name":"Akaash Dubey","Organization":"Anikash","Position":"Student","Education":"AITSchool","Skills":"Program","Honors":"sadasd","References":"", "EmploymentStatus":"Employed"}, {"Name":"asdasd","Organization":"sdcvrw","Position":"fvr","Education":"dvrwSchool","Skills":"dvsrf","Honors":"dvsd","References":"johnny", "EmploymentStatus":"Unemployed"}]'
+var data = '[{"Name":"Akash Dubey","Organization":"Anikash","Position":"Student","Education":"AITSchool","Skills":"Program","Honors":"sadasd","References":"", "EmploymentStatus":"Employed"}, {"Name":"asdasd","Organization":"sdcvrw","Position":"fvr","Education":"dvrwSchool","Skills":"dvsrf","Honors":"dvsd","References":"johnny", "EmploymentStatus":"Unemployed"}, {"Name":"Akash Dubey","Organization":"Anikash","Position":"Student","Education":"AITSchool","Skills":"Program","Honors":"sadasd","References":"Akash", "EmploymentStatus":"N/A"}]'
 
 function getData() {
     // This JSON files is hosted over the web
@@ -53,31 +53,33 @@ function openPortfolio(id) {
 function insertRow(data, i) {
     // get the portfolio-list
     var div = document.getElementById("portfolio-list");
+    
     // insert new code
-    color = "white"
+    var color = "white_gradient";
+    var textColor = "text-dark";
     if (data.EmploymentStatus == "Employed") {
-        color = "green"
+        color = "green_gradient";
+        textColor = "text-white";
     } else if (data.EmploymentStatus == "Unemployed") {
-        color = "red"
+        color = "red_gradient";
+        textColor = "text-white";
     }
     
     div.innerHTML += `
-    <div class="portfolio-item ${color}" onclick="openPortfolio(${i})">
-      <div class="portfolio-item-header">
-        <h2 class="portfolio-item-title">${data.Name}</h2>
+    <div class="card ${color} ${textColor} mb-3 mr-2 ml-2 mt-1" onclick="openPortfolio(${i})" style="cursor: pointer">
+      <div class="card-header">
+        <h2 class="card-title ${textColor}">${data.Name}</h2>
       </div>
-      <div class="portfolio-item-body">
-        <p class="portfolio-item-description">${data.Organization}</p>
-        <p class="portfolio-item-amount">${data.Position}</p>
-        <p class="portfolio-item-amount">${data.Education}</p>
+      <div class="card-body">
+        <p class="card-text"><i class="fas fa-building"></i> ${data.Organization}</p>
+        <p class="card-text"><i class="fas fa-briefcase"></i> ${data.Position}</p>
+        <p class="card-text"><i class="fas fa-university"></i> ${data.Education}</p>
       </div>
-      <div class="portfolio-item-body">
-        <p class="portfolio-item-description">${data.Skills}</p>
-        <p class="portfolio-item-amount">${data.Honors}</p>
-        <p class="portfolio-item-amount">${data.References}</p>
+      <div class="card-body">
+        <p class="card-text"><i class="fas fa-cogs"></i> ${data.Skills}</p>
+        <p class="card-text"><i class="fas fa-medal"></i> ${data.Honors}</p>
+        <p class="card-text"><i class="fas fa-users"></i> ${data.References}</p>
       </div>
     </div>
     `;
-
-
 }
