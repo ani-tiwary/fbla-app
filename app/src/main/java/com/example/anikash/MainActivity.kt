@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
     }
 
     fun goToHome() {
