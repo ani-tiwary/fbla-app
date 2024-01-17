@@ -60,7 +60,7 @@ class DashboardFragment : Fragment() {
             jsonObject.put("References", binding.editReferences.text)
             val selectedDropdownValue = binding.dropdown.selectedItem.toString()
             jsonObject.put("EmploymentStatus", selectedDropdownValue)
-            val enteredURL = binding.imageURLField.text
+            val enteredURL = binding.imageURLfield.text
             jsonObject.put("imageURL", enteredURL)
 
             println(jsonObject.toString())
