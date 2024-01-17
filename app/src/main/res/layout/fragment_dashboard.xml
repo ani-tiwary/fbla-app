@@ -127,7 +127,17 @@
             app:layout_constraintHorizontal_bias="0.511"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editReferences" />
-
+        <EditText
+            android:id="@+id/imageURLfield"
+            android:layout_width="327dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Image URL"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dropdown" />
         <Button
             android:id="@+id/submit_button"
             android:layout_width="255dp"
@@ -138,7 +148,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.513"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dropdown" />
+            app:layout_constraintTop_toBottomOf="@+id/imageURLfield" />
 
         <Space
             android:layout_width="255dp"
