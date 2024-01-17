@@ -1,6 +1,7 @@
 package com.example.anikash
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -34,10 +35,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_portfolios
             )
         )
+        // remove empty title bar
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         if (supportActionBar != null) {
             supportActionBar!!.hide()
+            supportActionBar?.setDisplayShowTitleEnabled(false)
         }
     }
 
@@ -63,6 +67,43 @@ class MainActivity : AppCompatActivity() {
             fileInputStream.close()
             JSONObject(text)
         } catch (e: Exception) {
+            val json = JSONObject()
+            json.put("portfolio", JSONArray())
+            val portfolioArray = json.getJSONArray("portfolio")
+            portfolioArray.put(JSONObject()
+                .put("Name", "Martin Luther King Jr.")
+                .put("Organization", "Civil Rights Movement")
+                .put("Position", "Leader")
+                .put("Education", "Boston University School of Theology")
+                .put("Skills", "Speaking, Leadership, Activism")
+                .put("Honors", "Noble Prize, NAACP Spingarn Medal, Presidential Medal of Freedom")
+                .put("References", "Malcolm X, Rosa Parks, John F. Kennedy")
+                .put("EmploymentStatus", "N/A")
+                .put("imageURL", "https://upload.wikimedia.org/wikipedia/commons/0/05/Martin_Luther_King%2C_Jr..jpg")
+            )
+            portfolioArray.put(JSONObject()
+                .put("Name", "Rosa Parks")
+                .put("Organization", "Civil Rights Movement")
+                .put("Position", "Activist")
+                .put("Education", "Alabama State Teachers College")
+                .put("Skills", "Activism, Leadership")
+                .put("Honors", "Congressional Gold Medal, Presidential Medal of Freedom")
+                .put("References", "Martin Luther King Jr., Malcolm X, John F. Kennedy")
+                .put("EmploymentStatus", "N/A")
+                .put("imageURL", "https://upload.wikimedia.org/wikipedia/commons/c/c4/Rosaparks.jpg")
+            )
+            portfolioArray.put(JSONObject()
+                .put("Name", "Elon Musk")
+                .put("Organization", "Tesla")
+                .put("Position", "CEO")
+                .put("Education", "University of Pennsylvania")
+                .put("Skills", "Leadership, Engineering")
+                .put("Honors", "Very Rich Man")
+                .put("References", "Jeff Bezos, Bill Gates, Steve Jobs")
+                .put("EmploymentStatus", "Employed")
+                .put("imageURL", "https://upload.wikimedia.org/wikipedia/commons/9/99/Elon_Musk_Colorado_2022_%28cropped2%29.jpg")
+            )
+            writeToFile(json)
             JSONObject()
         }
     }

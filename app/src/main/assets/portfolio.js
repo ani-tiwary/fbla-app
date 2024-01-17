@@ -22,7 +22,7 @@ function sendAndroidMessage() {
 	`${document.getElementById("shortDescription").innerText} `);
 }
 
-var data = '{"Name":"Akash Dubey","Organization":"Berkeley Heights","Position":"Student","Education":"AIT","Skills":"Java, Android Studio, and Python","Honors":"Student of the Month","References":"Dr. Wiener, Ani Tiwary, and Dylan Intwala", "EmploymentStatus":"Unemployed"}'
+var data = '{"Name":"Martin Luther King Jr.","Organization":"Civil Rights Movement","Position":"Leader","Education":"Boston University School of Theology","Skills":"Speaking, Leadership, Activism","Honors":"Noble Prize, NAACP Spingarn Medal, Presidential Medal of Freedom","References":"Malcolm X, Rosa Parks, John F. Kennedy","EmploymentStatus":"N/A","imageURL":"https://upload.wikimedia.org/wikipedia/commons/0/05/Martin_Luther_King%2C_Jr..jpg"}'
 
 function getData() {
     // This JSON files is hosted over the web
@@ -42,6 +42,7 @@ function addData(data) {
     console.log(data)
 
     document.getElementById("name").innerText = data.Name;
+    document.getElementById("img").src = data.imageURL;
     document.getElementById("Organization").innerHTML = '<i class="fas fa-building"></i> ' + data.Organization;
     document.getElementById("Position").innerHTML = '<i class="fas fa-briefcase"></i> '+data.Position;
     document.getElementById("Education").innerHTML = '<i class="fas fa-university"></i> '+data.Education;
